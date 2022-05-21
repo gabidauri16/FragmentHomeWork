@@ -3,11 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FourthFragment">
+    tools:context=".FourthFragment"
+    android:background="#4C0F0F">
 
     <TextView
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="#9E881D"
         android:id="@+id/tv4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

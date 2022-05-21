@@ -1,41 +1,28 @@
 package com.gabo.fragmenthomework
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 
-class FourthFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_fourth, container, false)
-    }
-
+class FourthFragment : Fragment(R.layout.fragment_fourth) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val text = arguments?.getString(KEY)
-        requireActivity().findViewById<TextView>(R.id.tv4).apply {
-            setText(text)
-            setOnClickListener {
-                val textToFirst = "you came here from Fragment Four \n Welcome to First Fragment again"
-                requireActivity().supportFragmentManager.beginTransaction().apply {
-                    replace(R.id.fragment_container, FirstFragment.newInstance(textToFirst))
-                        .commit()
-                }
-            }
+        val safeArgs: FourthFragmentArgs by navArgs()
+        val argument1 = safeArgs.arg1
+        val argument2 = safeArgs.arg2
+        if (argument1 != null){
+            requireActivity().findViewById<TextView>(R.id.tv4).text = argument1
+        } else {
+            requireActivity().findViewById<TextView>(R.id.tv4).text = argument2
+
         }
-    }
-    companion object {
-        const val KEY = "KEY"
-        fun newInstance(text: String) =
-            FourthFragment().apply {
-                arguments = Bundle().apply {
-                    putString(KEY, text)
-                }
-            }
+        requireActivity().findViewById<TextView>(R.id.tv4).setOnClickListener {
+            val text = "you came here from Fourth Fragment"
+            val direction = FourthFragmentDirections.actionFourthFragmentToFirstFragment(text)
+            findNavController().navigate(direction)
+        }
     }
 }

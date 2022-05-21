@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ThirdFragment">
+    tools:context=".ThirdFragment"
+    android:background="#0E184A">
 
     <TextView
         android:id="@+id/tv3"
@@ -13,18 +14,20 @@
         android:layout_gravity="center"
         android:layout_marginTop="200dp"
         android:gravity="center"
+        android:textColor="#9A6B0D"
         android:text="@string/welcome_to_fragment_tress"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv33"
+        android:textColor="#9A6B0D"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="150dp"
         android:gravity="center"
         android:text="@string/welcome_to_fragment_tressss"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
